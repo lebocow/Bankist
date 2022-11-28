@@ -82,6 +82,20 @@ const displayMovements = function (movements) {
 displayMovements(account1.movements);
 console.log(containerMovements.innerHTML);
 
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(` `)
+      .map(name => name.at(0))
+      .join(``);
+  });
+};
+
+const user = `Steven Thomas Williams`; // stw
+createUsernames(accounts);
+console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -91,7 +105,3 @@ const currencies = new Map([
   ['EUR', 'Euro'],
   ['GBP', 'Pound sterling'],
 ]);
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
